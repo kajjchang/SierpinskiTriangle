@@ -1,19 +1,21 @@
 public void setup() {
 	size(500, 500);
-	frameRate(10);
 	noStroke();
 	sierpinski(width / 2, height / 2, Math.min(width, height));
 }
 
 public void draw() {
-	sierpinski(width / 2, height / 2, Math.min(width, height) + frameCount * 12);
+	float count = frameCount % Math.min(width, height);
+	background(100);
+	translate(count / 2, -count / 2 * sin(PI / 3));
+	sierpinski(width / 2, height / 2, min(width, height) + count);
 }
 
 public void sierpinski(float x, float y, float size) {
 	float b = size;
 	float h = size * sin(PI / 3);
 	if (size <= 5) {
-		fill(sin(frameCount) * 255, cos(frameCount) * 255, 255);
+		fill(0);
 		triangle(
 			x - b / 2, y + h / 2,
 			x + b / 2, y + h / 2,
