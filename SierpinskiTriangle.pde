@@ -1,6 +1,7 @@
 public void setup() {
 	size(500, 500);
 	noStroke();
+	fill(0);
 	sierpinski(width / 2, height / 2, Math.min(width, height));
 }
 
@@ -15,7 +16,6 @@ public void sierpinski(float x, float y, float size) {
 	float b = size;
 	float h = size * sin(PI / 3);
 	if (size <= 10) {
-		fill(0);
 		triangle(
 			x - b / 2, y + h / 2,
 			x + b / 2, y + h / 2,
