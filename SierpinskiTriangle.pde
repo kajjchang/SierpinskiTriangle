@@ -8,13 +8,13 @@ public void draw() {
 	float count = frameCount % Math.min(width, height);
 	background(100);
 	translate(count / 2, -count / 2 * sin(PI / 3));
-	sierpinski(width / 2, height / 2, min(width, height) + count);
+	sierpinski(width / 2, height / 2 - height * (1 - sin(PI / 3)), min(width, height) + count);
 }
 
 public void sierpinski(float x, float y, float size) {
 	float b = size;
 	float h = size * sin(PI / 3);
-	if (size <= 5) {
+	if (size <= 10) {
 		fill(0);
 		triangle(
 			x - b / 2, y + h / 2,
